@@ -1,0 +1,23 @@
+services:
+  nordvpn:
+    image: nordfork
+    container_name: nordfork
+    cap_add:
+      - NET_ADMIN # Required
+      - NET_RAW # Required
+    sysctls:
+      - net.ipv6.conf.all.disable_ipv6=0
+    tty: true
+    hostname: nordvpn-hyte
+    environment: # Review https://github.com/bubuntux/nordvpn#environment-variables
+      # - TOKEN=
+      - TOKENFILE=/run/secrets/token_file
+      - TECHNOLOGY=NordLynx
+      - LAN_DISCOVERY=on
+      - NETWORK=192.168.254.0/24  # So it can be accessed within the local network
+    secrets:
+      - token_file
+
+secrets:
+  token_file:
+    file: ./token_file.txt
