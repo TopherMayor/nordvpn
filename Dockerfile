@@ -1,6 +1,6 @@
 # FROM ubuntu:24.04
 FROM ghcr.io/linuxserver/baseimage-ubuntu:jammy
-# LABEL maintainer="Christopher Mayor toph.homelab+nordvpn@gmail.com"
+LABEL maintainer="Christopher Mayor toph.homelab+nordvpn@gmail.com"
 
 # ARG NORDVPN_VERSION=3.17.4
 # ARG DEBIAN_FRONTEND=noninteractive
